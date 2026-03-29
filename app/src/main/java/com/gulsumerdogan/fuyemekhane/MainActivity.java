@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
             try {
                 OkHttpClient client = new OkHttpClient();
                 Request request = new Request.Builder()
-                        .url("http://10.222.252.181/yemekhane/yemek.php")
+                        .url("http://10.222.252.181/yemekhane/gunluk_menu.php")
                         .build();
 
                 Response response = client.newCall(request).execute();
