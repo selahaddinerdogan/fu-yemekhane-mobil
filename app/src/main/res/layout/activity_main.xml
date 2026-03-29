@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_background"
+    tools:context=".MainActivity"
+    android:padding="16dp">
+
+    <!-- Tarih başlığı -->
+    <TextView
+        android:id="@+id/textDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="24 Aralık 2024 Salı"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="10dp" />
+
+    <!-- Menü öğeleri -->
+    <TextView
+        android:id="@+id/anaYemek"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="PATATES MUSAKKA"
+        android:padding="12dp"
+        android:background="@color/teal_200"
+        android:textColor="@android:color/black"
+        app:layout_constraintTop_toBottomOf="@id/textDate"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="10dp" />
+
+    <TextView
+        android:id="@+id/yardimciYemek"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="BULGUR PİLAVI"
+        android:padding="12dp"
+        android:background="@color/purple_200"
+        android:textColor="@android:color/black"
+        app:layout_constraintTop_toBottomOf="@id/anaYemek"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="10dp" />
+
+    <TextView
+        android:id="@+id/corba"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="MERCİMEK ÇORBASI"
+        android:padding="12dp"
+        android:background="@color/green"
+        android:textColor="@android:color/black"
+        app:layout_constraintTop_toBottomOf="@id/yardimciYemek"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="10dp" />
+
+    <TextView
+        android:id="@+id/salata"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="MEYVE"
+        android:padding="12dp"
+        android:background="@color/yellow"
+        android:textColor="@android:color/black"
+        app:layout_constraintTop_toBottomOf="@id/corba"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="16dp"/>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

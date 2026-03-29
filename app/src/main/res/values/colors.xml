@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="my_primary">#8c0841</color>
+    <color name="my_primary_variant">#8c0841</color>
+
+    <color name="teal_200">#80CBC4</color>
+    <color name="purple_200">#CE93D8</color>
+    <color name="green">#81C784</color>
+    <color name="yellow">#D96868</color>
+    <!-- Buton rengi -->
+    <color name="red">#D32F2F</color>
+    <color name="main_background">#F3E3D0</color>
+</resources>
