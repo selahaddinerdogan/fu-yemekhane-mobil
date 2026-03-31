@@ -36,8 +36,6 @@ public class MainActivity extends AppCompatActivity {
     private TextView icecekTxt;
     private TextView toplamKaloriTxt;
 
-    private static OkHttpClient client = new OkHttpClient();
-
     @SuppressLint({"MissingInflatedId", "SetTextI18n"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,7 +61,6 @@ public class MainActivity extends AppCompatActivity {
         tatliTxt = (TextView) findViewById(R.id.tatli);
         icecekTxt = (TextView) findViewById(R.id.icecek);
         toplamKaloriTxt = (TextView) findViewById(R.id.toplamKalori);
-        setDate();
 
         new Thread(() -> {
             try {
@@ -83,6 +80,7 @@ public class MainActivity extends AppCompatActivity {
                         String salata = menu.getString("salata");
                         String tatli = menu.getString("tatli");
                         String icecek = menu.getString("icecek");
+                        String tarih = menu.getString("tarih");
 
                         int ana_yemek_kalori = menu.getInt("ana_yemek_kalori");
                         int yardimci_yemek_kalori = menu.getInt("yardimci_yemek_kalori");
@@ -101,6 +99,8 @@ public class MainActivity extends AppCompatActivity {
                         tatliTxt.setText(tatli + " - " + tatli_kalori + " kcal");
                         icecekTxt.setText(icecek + " - " + icecek_kalori + " kcal");
                         toplamKaloriTxt.setText("Toplam: " + toplamKalori + " kcal");
+                        textDate.setText(tarih);
+
 
                     } catch (JSONException e) {
                         Log.d("YEMEKMENU Hata", e.toString());
@@ -114,12 +114,12 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void setDate() {
-        // Şu anki tarih ve saat
-        Date date = new Date();
-        // İstediğin formatı belirle
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy EEEE", new Locale("tr", "TR"));
-        // Formatlanmış tarihi TextView’e bas
-        textDate.setText(sdf.format(date));
-    }
+//    private void setDate() {
+//        // Şu anki tarih ve saat
+//        Date date = new Date();
+//        // İstediğin formatı belirle
+//        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy EEEE", new Locale("tr", "TR"));
+//        // Formatlanmış tarihi TextView’e bas
+//        textDate.setText(sdf.format(date));
+//    }
 }
