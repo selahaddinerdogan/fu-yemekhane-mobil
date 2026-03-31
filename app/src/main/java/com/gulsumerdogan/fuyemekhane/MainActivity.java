@@ -28,14 +28,17 @@ import okhttp3.Response;
 public class MainActivity extends AppCompatActivity {
 
     private TextView textDate;
-    private TextView anaYemek;
-    private TextView yardimciYemek;
-    private TextView corba;
-    private TextView salata;
+    private TextView anaYemekTxt;
+    private TextView yardimciYemekTxt;
+    private TextView corbaTxt;
+    private TextView salataTxt;
+    private TextView tatliTxt;
+    private TextView icecekTxt;
+    private TextView toplamKaloriTxt;
 
     private static OkHttpClient client = new OkHttpClient();
 
-    @SuppressLint("MissingInflatedId")
+    @SuppressLint({"MissingInflatedId", "SetTextI18n"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,10 +56,13 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
         textDate = (TextView) findViewById(R.id.textDate);
-        anaYemek = (TextView) findViewById(R.id.anaYemek);
-        yardimciYemek = (TextView) findViewById(R.id.yardimciYemek);
-        corba = (TextView) findViewById(R.id.corba);
-        salata = (TextView) findViewById(R.id.salata);
+        anaYemekTxt = (TextView) findViewById(R.id.anaYemek);
+        yardimciYemekTxt = (TextView) findViewById(R.id.yardimciYemek);
+        corbaTxt = (TextView) findViewById(R.id.corba);
+        salataTxt = (TextView) findViewById(R.id.salata);
+        tatliTxt = (TextView) findViewById(R.id.tatli);
+        icecekTxt = (TextView) findViewById(R.id.icecek);
+        toplamKaloriTxt = (TextView) findViewById(R.id.toplamKalori);
         setDate();
 
         new Thread(() -> {
@@ -71,10 +77,28 @@ public class MainActivity extends AppCompatActivity {
                     String jsonData = response.body().string();
                     JSONObject menu = new JSONObject(jsonData);
                     try {
-                        anaYemek.setText(menu.getString("ana_yemek"));
-                        yardimciYemek.setText(menu.getString("yardimci_yemek"));
-                        corba.setText(menu.getString("corba"));
-                        salata.setText(menu.getString("salata"));
+                        int ana_yemek_kalori = menu.getInt("ana_yemek_kalori");
+                        int yardimci_yemek_kalori = menu.getInt("yardimci_yemek_kalori");
+                        int corba_kalori = menu.getInt("corba_kalori");
+                        int salata_kalori = menu.getInt("salata_kalori");
+                        int tatli_kalori = menu.getInt("tatli_kalori");
+                        int icecek_kalori = menu.getInt("icecek_kalori");
+                        int toplamKalori = ana_yemek_kalori + yardimci_yemek_kalori + corba_kalori + salata_kalori + tatli_kalori + icecek_kalori;
+                        String ana_yemek = menu.getString("ana_yemek");
+                        String yardimci_yemek = menu.getString("yardimci_yemek");
+                        String corba = menu.getString("corba");
+                        String salata = menu.getString("salata");
+                        String tatli = menu.getString("tatli");
+                        String icecek = menu.getString("icecek");
+
+                        anaYemekTxt.setText(ana_yemek + " - " + ana_yemek_kalori + " kcal");
+                        yardimciYemekTxt.setText(yardimci_yemek + " - " + yardimci_yemek_kalori + " kcal");
+                        corbaTxt.setText(corba + " - " + corba_kalori + " kcal");
+                        salataTxt.setText(salata + " - " + salata_kalori + " kcal");
+                        tatliTxt.setText(tatli + " - " + tatli_kalori + " kcal");
+                        icecekTxt.setText(icecek + " - " + icecek_kalori + " kcal");
+                        toplamKaloriTxt.setText("Toplam1: " + toplamKalori + " kcal");
+
                     } catch (JSONException e) {
                         Log.d("YEMEKMENU Hata", e.toString());
                         throw new RuntimeException(e);

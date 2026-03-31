@@ -14,72 +14,175 @@
         android:id="@+id/textDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="24 Aralık 2024 Salı"
+        android:text="2026-03-31"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginBottom="16dp"
-        android:layout_marginTop="10dp" />
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="16dp" />
 
-    <!-- Menü öğeleri -->
+    <!-- Ana Yemek Başlığı -->
+    <TextView
+        android:id="@+id/anaYemekTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ana Yemek"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/textDate"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <!-- Ana Yemek -->
     <TextView
         android:id="@+id/anaYemek"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="PATATES MUSAKKA"
+        android:text="Et Sote - 420 kcal"
         android:padding="12dp"
         android:background="@color/teal_200"
         android:textColor="@android:color/black"
-        app:layout_constraintTop_toBottomOf="@id/textDate"
+        app:layout_constraintTop_toBottomOf="@id/anaYemekTitle"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginBottom="8dp"
-        android:layout_marginTop="10dp" />
+        app:layout_constraintEnd_toEndOf="parent"/>
 
+    <!-- Yardımcı Yemek Başlığı -->
+    <TextView
+        android:id="@+id/yardimciYemekTitle"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Yardımcı Yemek"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/anaYemek"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <!-- Yardımcı Yemek -->
     <TextView
         android:id="@+id/yardimciYemek"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="BULGUR PİLAVI"
+        android:text="Makarna - 300 kcal"
         android:padding="12dp"
         android:background="@color/purple_200"
         android:textColor="@android:color/black"
-        app:layout_constraintTop_toBottomOf="@id/anaYemek"
+        app:layout_constraintTop_toBottomOf="@id/yardimciYemekTitle"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginBottom="8dp"
-        android:layout_marginTop="10dp" />
+        app:layout_constraintEnd_toEndOf="parent"/>
 
+    <!-- Çorba Başlığı -->
+    <TextView
+        android:id="@+id/corbaTitle"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Çorba"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/yardimciYemek"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <!-- Çorba -->
     <TextView
         android:id="@+id/corba"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="MERCİMEK ÇORBASI"
+        android:text="Tarhana Çorbası - 160 kcal"
         android:padding="12dp"
         android:background="@color/green"
         android:textColor="@android:color/black"
-        app:layout_constraintTop_toBottomOf="@id/yardimciYemek"
+        app:layout_constraintTop_toBottomOf="@id/corbaTitle"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginBottom="8dp"
-        android:layout_marginTop="10dp" />
+        app:layout_constraintEnd_toEndOf="parent"/>
 
+    <!-- Salata Başlığı -->
+    <TextView
+        android:id="@+id/salataTitle"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Salata"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/corba"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <!-- Salata -->
     <TextView
         android:id="@+id/salata"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="MEYVE"
+        android:text="Rus Salatası - 250 kcal"
         android:padding="12dp"
         android:background="@color/yellow"
         android:textColor="@android:color/black"
-        app:layout_constraintTop_toBottomOf="@id/corba"
+        app:layout_constraintTop_toBottomOf="@id/salataTitle"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- Tatlı Başlığı -->
+    <TextView
+        android:id="@+id/tatliTitle"
         android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tatlı"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/salata"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <!-- Tatlı -->
+    <TextView
+        android:id="@+id/tatli"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Tavuk Göğsü - 220 kcal"
+        android:padding="12dp"
+        android:background="@color/orange"
+        android:textColor="@android:color/black"
+        app:layout_constraintTop_toBottomOf="@id/tatliTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- İçecek Başlığı -->
+    <TextView
+        android:id="@+id/icecekTitle"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="İçecek"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/tatli"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <!-- İçecek -->
+    <TextView
+        android:id="@+id/icecek"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Kola - 100 kcal"
+        android:padding="12dp"
+        android:background="@color/blue"
+        android:textColor="@android:color/black"
+        app:layout_constraintTop_toBottomOf="@id/icecekTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- Toplam Kalori -->
+    <TextView
+        android:id="@+id/toplamKalori"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Toplam: 1450 kcal"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/icecek"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginBottom="16dp"/>
-
-
+        android:layout_marginTop="16dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
