@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
             try {
                 OkHttpClient client = new OkHttpClient();
                 Request request = new Request.Builder()
-                        .url("http://10.222.252.181/yemekhane/gunluk_menu.php")
+                        .url("http://192.168.1.102/yemekhane/gunluk_menu.php")
                         .build();
 
                 Response response = client.newCall(request).execute();
@@ -97,14 +97,12 @@ public class MainActivity extends AppCompatActivity {
                         salataTxt.setText(salata + " - " + salata_kalori + " kcal");
                         tatliTxt.setText(tatli + " - " + tatli_kalori + " kcal");
                         icecekTxt.setText(icecek + " - " + icecek_kalori + " kcal");
-                        toplamKaloriTxt.setText("Toplam1: " + toplamKalori + " kcal");
+                        toplamKaloriTxt.setText("Toplam: " + toplamKalori + " kcal");
 
                     } catch (JSONException e) {
                         Log.d("YEMEKMENU Hata", e.toString());
                         throw new RuntimeException(e);
                     }
-                    // UI güncellemesi için runOnUiThread kullanın
-                    // örn: textView.setText(menu.toString());
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -120,29 +118,5 @@ public class MainActivity extends AppCompatActivity {
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy EEEE", new Locale("tr", "TR"));
         // Formatlanmış tarihi TextView’e bas
         textDate.setText(sdf.format(date));
-    }
-
-    public static JSONObject getYemekMenu(String urlString) {
-        try {
-            // Emülatörden bilgisayarınızdaki localhost’a erişmek için 10.0.2.2 kullanın
-            String url = urlString;
-
-            Request request = new Request.Builder()
-                    .url(url)
-                    .build();
-
-            Response response = client.newCall(request).execute();
-
-            if (response.isSuccessful() && response.body() != null) {
-                String jsonData = response.body().string();
-                return new JSONObject(jsonData);
-            } else {
-                System.out.println("İstek başarısız: " + response.code());
-                return null;
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
-        }
     }
 }

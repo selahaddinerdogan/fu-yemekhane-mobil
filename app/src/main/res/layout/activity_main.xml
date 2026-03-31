@@ -39,7 +39,7 @@
         android:id="@+id/anaYemek"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Et Sote - 420 kcal"
+        android:text="Ana yemek"
         android:padding="12dp"
         android:background="@color/teal_200"
         android:textColor="@android:color/black"
@@ -50,7 +50,7 @@
     <!-- Yardımcı Yemek Başlığı -->
     <TextView
         android:id="@+id/yardimciYemekTitle"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="7dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Yardımcı Yemek"
@@ -75,7 +75,7 @@
     <!-- Çorba Başlığı -->
     <TextView
         android:id="@+id/corbaTitle"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="7dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Çorba"
@@ -100,7 +100,7 @@
     <!-- Salata Başlığı -->
     <TextView
         android:id="@+id/salataTitle"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="7dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Salata"
@@ -125,7 +125,7 @@
     <!-- Tatlı Başlığı -->
     <TextView
         android:id="@+id/tatliTitle"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="7dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Tatlı"
@@ -150,7 +150,7 @@
     <!-- İçecek Başlığı -->
     <TextView
         android:id="@+id/icecekTitle"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="7dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="İçecek"
