@@ -77,19 +77,22 @@ public class MainActivity extends AppCompatActivity {
                     String jsonData = response.body().string();
                     JSONObject menu = new JSONObject(jsonData);
                     try {
-                        int ana_yemek_kalori = menu.getInt("ana_yemek_kalori");
-                        int yardimci_yemek_kalori = menu.getInt("yardimci_yemek_kalori");
-                        int corba_kalori = menu.getInt("corba_kalori");
-                        int salata_kalori = menu.getInt("salata_kalori");
-                        int tatli_kalori = menu.getInt("tatli_kalori");
-                        int icecek_kalori = menu.getInt("icecek_kalori");
-                        int toplamKalori = ana_yemek_kalori + yardimci_yemek_kalori + corba_kalori + salata_kalori + tatli_kalori + icecek_kalori;
                         String ana_yemek = menu.getString("ana_yemek");
                         String yardimci_yemek = menu.getString("yardimci_yemek");
                         String corba = menu.getString("corba");
                         String salata = menu.getString("salata");
                         String tatli = menu.getString("tatli");
                         String icecek = menu.getString("icecek");
+
+                        int ana_yemek_kalori = menu.getInt("ana_yemek_kalori");
+                        int yardimci_yemek_kalori = menu.getInt("yardimci_yemek_kalori");
+                        int corba_kalori = menu.getInt("corba_kalori");
+                        int salata_kalori = menu.getInt("salata_kalori");
+                        int tatli_kalori = menu.getInt("tatli_kalori");
+                        int icecek_kalori = menu.getInt("icecek_kalori");
+
+                        int toplamKalori = ana_yemek_kalori + yardimci_yemek_kalori + corba_kalori + salata_kalori + tatli_kalori + icecek_kalori;
+
 
                         anaYemekTxt.setText(ana_yemek + " - " + ana_yemek_kalori + " kcal");
                         yardimciYemekTxt.setText(yardimci_yemek + " - " + yardimci_yemek_kalori + " kcal");
