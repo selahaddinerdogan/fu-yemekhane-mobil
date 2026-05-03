@@ -1,9 +1,10 @@
 package com.gulsumerdogan.fuyemekhane;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.util.Log;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -16,10 +17,6 @@ import androidx.core.view.WindowInsetsCompat;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
 
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -35,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView tatliTxt;
     private TextView icecekTxt;
     private TextView toplamKaloriTxt;
+    private Button btnAylikMenu;
 
     @SuppressLint({"MissingInflatedId", "SetTextI18n"})
     @Override
@@ -61,19 +59,27 @@ public class MainActivity extends AppCompatActivity {
         tatliTxt = (TextView) findViewById(R.id.tatli);
         icecekTxt = (TextView) findViewById(R.id.icecek);
         toplamKaloriTxt = (TextView) findViewById(R.id.toplamKalori);
+        btnAylikMenu = findViewById(R.id.btnAylikMenu);
 
+        btnAylikMenu.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, AylikMenuActivity.class);
+            startActivity(intent);
+        });
         new Thread(() -> {
             try {
                 OkHttpClient client = new OkHttpClient();
                 Request request = new Request.Builder()
-                        .url("http://192.168.1.102/yemekhane/gunluk_menu.php")
+                        .url("http://172.20.160.1/yemekhane/gunluk_menu.php")
                         .build();
-
+// sunucuya reguest olusturma
                 Response response = client.newCall(request).execute();
                 if (response.isSuccessful() && response.body() != null) {
-                    String jsonData = response.body().string();
-                    JSONObject menu = new JSONObject(jsonData);
+                    //Sunucudan dönen data
+                    String responseData = response.body().string();
+                    //Sunucudan dönen datayı json formatına çevirme
+                    JSONObject menu = new JSONObject(responseData);
                     try {
+                        //jsondan verilri okuma
                         String ana_yemek = menu.getString("ana_yemek");
                         String yardimci_yemek = menu.getString("yardimci_yemek");
                         String corba = menu.getString("corba");
@@ -91,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
 
                         int toplamKalori = ana_yemek_kalori + yardimci_yemek_kalori + corba_kalori + salata_kalori + tatli_kalori + icecek_kalori;
 
-
+                        // verileri ara yüzde gösterme
                         anaYemekTxt.setText(ana_yemek + " - " + ana_yemek_kalori + " kcal");
                         yardimciYemekTxt.setText(yardimci_yemek + " - " + yardimci_yemek_kalori + " kcal");
                         corbaTxt.setText(corba + " - " + corba_kalori + " kcal");
@@ -103,7 +109,6 @@ public class MainActivity extends AppCompatActivity {
 
 
                     } catch (JSONException e) {
-                        Log.d("YEMEKMENU Hata", e.toString());
                         throw new RuntimeException(e);
                     }
                 }
