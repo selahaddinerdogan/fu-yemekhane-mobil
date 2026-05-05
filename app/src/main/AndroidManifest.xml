@@ -22,9 +22,10 @@
             </intent-filter>
         </activity>
         <!-- Aylık Menü Aktivitesi -->
-        <activity android:name=".AylikMenuActivity"
-            android:label="Aylık Menü"
-            android:theme="@style/Theme.FUYemekhane" />
+        <activity
+            android:name=".AylikMenuActivity"
+            android:theme="@style/Theme.FUYemekhane"
+            android:exported="false"/>
     </application>
 
 </manifest>

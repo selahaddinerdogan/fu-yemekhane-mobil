@@ -1,8 +1,13 @@
 package com.gulsumerdogan.fuyemekhane;
 
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.widget.ListView;
+
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 import okhttp3.OkHttpClient;
@@ -15,6 +20,14 @@ public class AylikMenuActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_aylik_menu);
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        // Başlık ve renk toolbar'da ayarlanıyor, ekstra TextView'e gerek yok
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setTitle("Aylık Menü Listesi");
+        }
 
         ListView listView = findViewById(R.id.menuListView);
         ArrayList<GunlukMenu> menuler = new ArrayList<>();
