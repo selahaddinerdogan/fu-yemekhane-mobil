@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -100,15 +101,17 @@ public class MainActivity extends AppCompatActivity {
                         int toplamKalori = ana_yemek_kalori + yardimci_yemek_kalori + corba_kalori + salata_kalori + tatli_kalori + icecek_kalori;
 
                         // verileri ara yüzde gösterme
-                        anaYemekTxt.setText(ana_yemek + " - " + ana_yemek_kalori + " kcal");
-                        yardimciYemekTxt.setText(yardimci_yemek + " - " + yardimci_yemek_kalori + " kcal");
-                        corbaTxt.setText(corba + " - " + corba_kalori + " kcal");
-                        salataTxt.setText(salata + " - " + salata_kalori + " kcal");
-                        tatliTxt.setText(tatli + " - " + tatli_kalori + " kcal");
-                        icecekTxt.setText(icecek + " - " + icecek_kalori + " kcal");
-                        toplamKaloriTxt.setText("Toplam: " + toplamKalori + " kcal");
-                        textDate.setText(tarih);
-
+                        runOnUiThread(() -> {
+                            anaYemekTxt.setText(ana_yemek + " - " + ana_yemek_kalori + " kcal");
+                            yardimciYemekTxt.setText(yardimci_yemek + " - " + yardimci_yemek_kalori + " kcal");
+                            corbaTxt.setText(corba + " - " + corba_kalori + " kcal");
+                            salataTxt.setText(salata + " - " + salata_kalori + " kcal");
+                            tatliTxt.setText(tatli + " - " + tatli_kalori + " kcal");
+                            icecekTxt.setText(icecek + " - " + icecek_kalori + " kcal");
+                            toplamKaloriTxt.setText("Toplam: " + toplamKalori + " kcal");
+                            textDate.setText(tarih);
+                        });
+                        Log.d("TARİH", tarih);
 
                     } catch (JSONException e) {
                         throw new RuntimeException(e);
