@@ -36,7 +36,7 @@ public class AylikMenuActivity extends AppCompatActivity {
             try {
                 OkHttpClient client = new OkHttpClient();
                 Request request = new Request.Builder()
-                        .url("http://172.20.160.1/yemekhane/aylik_menu.php")
+                        .url("http://" + MainActivity.SERVER_IP + "/yemekhane/gunluk_menu.php")
                         .build();
                 Response response = client.newCall(request).execute();
                 if (response.isSuccessful() && response.body() != null) {

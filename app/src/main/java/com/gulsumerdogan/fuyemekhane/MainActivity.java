@@ -34,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
     private TextView toplamKaloriTxt;
     private Button btnAylikMenu;
 
+    public static String SERVER_IP = "192.168.1.100";
+
     @SuppressLint({"MissingInflatedId", "SetTextI18n"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
             try {
                 OkHttpClient client = new OkHttpClient();
                 Request request = new Request.Builder()
-                        .url("http://172.20.160.1/yemekhane/gunluk_menu.php")
+                        .url("http://" + SERVER_IP + "/yemekhane/gunluk_menu.php")
                         .build();
 // sunucuya reguest olusturma
                 Response response = client.newCall(request).execute();
