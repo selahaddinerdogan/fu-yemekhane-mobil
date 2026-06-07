@@ -2,7 +2,7 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="date">#F61979</color>
+    <color name="date">#ED82B0</color>
     <color name="my_primary">#8c0841</color>
     <color name="my_primary_variant">#8c0841</color>
 
