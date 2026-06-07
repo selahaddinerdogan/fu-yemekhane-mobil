@@ -33,9 +33,11 @@ public class MainActivity extends AppCompatActivity {
     private TextView tatliTxt;
     private TextView icecekTxt;
     private TextView toplamKaloriTxt;
-    private Button btnAylikMenu;
+    private TextView haftalikToplamKaloriTxt;
+    private TextView aylikToplamKaloriTxt;
+    private Button btnHaftalikMenu;
 
-    public static String SERVER_IP = "192.168.1.100";
+    public static String SERVER_IP = "192.168.1.102";
 
     @SuppressLint({"MissingInflatedId", "SetTextI18n"})
     @Override
@@ -62,10 +64,12 @@ public class MainActivity extends AppCompatActivity {
         tatliTxt = (TextView) findViewById(R.id.tatli);
         icecekTxt = (TextView) findViewById(R.id.icecek);
         toplamKaloriTxt = (TextView) findViewById(R.id.toplamKalori);
-        btnAylikMenu = findViewById(R.id.btnAylikMenu);
+        haftalikToplamKaloriTxt = (TextView) findViewById(R.id.haftalikToplamKalori);
+        aylikToplamKaloriTxt = (TextView) findViewById(R.id.aylikToplamKalori);
+        btnHaftalikMenu = findViewById(R.id.btnHaftalikMenu);
 
-        btnAylikMenu.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, AylikMenuActivity.class);
+        btnHaftalikMenu.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, MenuActivity.class);
             startActivity(intent);
         });
         new Thread(() -> {
@@ -97,9 +101,10 @@ public class MainActivity extends AppCompatActivity {
                         int salata_kalori = menu.getInt("salata_kalori");
                         int tatli_kalori = menu.getInt("tatli_kalori");
                         int icecek_kalori = menu.getInt("icecek_kalori");
+                        int haftalik_toplam_kalori = menu.getInt("haftalik_toplam_kalori");
+                        int aylik_toplam_kalori = menu.getInt("aylik_toplam_kalori");
 
                         int toplamKalori = ana_yemek_kalori + yardimci_yemek_kalori + corba_kalori + salata_kalori + tatli_kalori + icecek_kalori;
-
                         // verileri ara yüzde gösterme
                         runOnUiThread(() -> {
                             anaYemekTxt.setText(ana_yemek + " - " + ana_yemek_kalori + " kcal");
@@ -108,11 +113,12 @@ public class MainActivity extends AppCompatActivity {
                             salataTxt.setText(salata + " - " + salata_kalori + " kcal");
                             tatliTxt.setText(tatli + " - " + tatli_kalori + " kcal");
                             icecekTxt.setText(icecek + " - " + icecek_kalori + " kcal");
-                            toplamKaloriTxt.setText("Toplam: " + toplamKalori + " kcal");
-                            textDate.setText(tarih);
+                            toplamKaloriTxt.setText("Günlük Toplam: " + toplamKalori + " kcal");
+                            haftalikToplamKaloriTxt.setText("Haftalık Toplam: " + haftalik_toplam_kalori + " kcal");
+                            aylikToplamKaloriTxt.setText("Aylık Toplam: " + aylik_toplam_kalori + " kcal");
+                            textDate.setText("Günün Menüsü(" + tarih + ")");
                         });
                         Log.d("TARİH", tarih);
-
                     } catch (JSONException e) {
                         throw new RuntimeException(e);
                     }

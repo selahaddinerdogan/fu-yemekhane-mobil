@@ -23,7 +23,7 @@
         </activity>
         <!-- Aylık Menü Aktivitesi -->
         <activity
-            android:name=".AylikMenuActivity"
+            android:name=".MenuActivity"
             android:theme="@style/Theme.FUYemekhane"
             android:exported="false"/>
     </application>

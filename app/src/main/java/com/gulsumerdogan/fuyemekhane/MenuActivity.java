@@ -1,21 +1,21 @@
 package com.gulsumerdogan.fuyemekhane;
 
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.content.ContextCompat;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+
+import java.util.ArrayList;
+
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-import java.util.ArrayList;
 
-public class AylikMenuActivity extends AppCompatActivity {
+public class MenuActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,7 +26,7 @@ public class AylikMenuActivity extends AppCompatActivity {
 
         // Başlık ve renk toolbar'da ayarlanıyor, ekstra TextView'e gerek yok
         if (getSupportActionBar() != null) {
-            getSupportActionBar().setTitle("Aylık Menü Listesi");
+            getSupportActionBar().setTitle("Haftalık Menü Listesi");
         }
 
         ListView listView = findViewById(R.id.menuListView);
@@ -36,7 +36,7 @@ public class AylikMenuActivity extends AppCompatActivity {
             try {
                 OkHttpClient client = new OkHttpClient();
                 Request request = new Request.Builder()
-                        .url("http://" + MainActivity.SERVER_IP + "/yemekhane/gunluk_menu.php")
+                        .url("http://" + MainActivity.SERVER_IP + "/yemekhane/haftalik_menu.php")
                         .build();
                 Response response = client.newCall(request).execute();
                 if (response.isSuccessful() && response.body() != null) {

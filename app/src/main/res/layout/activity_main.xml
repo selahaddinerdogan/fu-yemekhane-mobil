@@ -18,6 +18,8 @@
         android:text="2026-03-31"
         android:textSize="18sp"
         android:textStyle="bold"
+        android:background="@color/date"
+        android:padding="5sp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -25,23 +27,28 @@
         android:layout_marginBottom="16dp" />
 
     <!-- Ana Yemek Başlığı -->
-    <TextView
-        android:id="@+id/anaYemekTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Ana Yemek"
-        android:textStyle="bold"
-        android:textSize="16sp"
-        app:layout_constraintTop_toBottomOf="@id/textDate"
-        app:layout_constraintStart_toStartOf="parent"/>
 
     <!-- Ana Yemek -->
+    <TextView
+        android:id="@+id/anaYemekTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:background="@color/teal_200"
+        android:padding="5sp"
+        android:text="Ana Yemek"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textDate" />
+
     <TextView
         android:id="@+id/anaYemek"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Kuzu pirzola"
+        android:text=""
         android:padding="12dp"
+        android:textStyle="bold"
         android:background="@color/teal_200"
         android:textColor="@android:color/black"
         app:layout_constraintTop_toBottomOf="@id/anaYemekTitle"
@@ -52,11 +59,13 @@
     <TextView
         android:id="@+id/yardimciYemekTitle"
         android:layout_marginTop="7dp"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Yardımcı Yemek"
         android:textStyle="bold"
         android:textSize="16sp"
+        android:background="@color/purple_200"
+        android:padding="5sp"
         app:layout_constraintTop_toBottomOf="@id/anaYemek"
         app:layout_constraintStart_toStartOf="parent"/>
 
@@ -65,8 +74,9 @@
         android:id="@+id/yardimciYemek"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Makarna - 300 kcal"
+        android:text="-"
         android:padding="12dp"
+        android:textStyle="bold"
         android:background="@color/purple_200"
         android:textColor="@android:color/black"
         app:layout_constraintTop_toBottomOf="@id/yardimciYemekTitle"
@@ -77,10 +87,12 @@
     <TextView
         android:id="@+id/corbaTitle"
         android:layout_marginTop="7dp"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Çorba"
         android:textStyle="bold"
+        android:background="@color/green"
+        android:padding="5sp"
         android:textSize="16sp"
         app:layout_constraintTop_toBottomOf="@id/yardimciYemek"
         app:layout_constraintStart_toStartOf="parent"/>
@@ -90,8 +102,9 @@
         android:id="@+id/corba"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Tarhana Çorbası - 160 kcal"
+        android:text="-"
         android:padding="12dp"
+        android:textStyle="bold"
         android:background="@color/green"
         android:textColor="@android:color/black"
         app:layout_constraintTop_toBottomOf="@id/corbaTitle"
@@ -102,9 +115,11 @@
     <TextView
         android:id="@+id/salataTitle"
         android:layout_marginTop="7dp"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Salata"
+        android:background="@color/yellow"
+        android:padding="5sp"
         android:textStyle="bold"
         android:textSize="16sp"
         app:layout_constraintTop_toBottomOf="@id/corba"
@@ -117,6 +132,7 @@
         android:layout_height="wrap_content"
         android:text="Rus Salatası - 250 kcal"
         android:padding="12dp"
+        android:textStyle="bold"
         android:background="@color/yellow"
         android:textColor="@android:color/black"
         app:layout_constraintTop_toBottomOf="@id/salataTitle"
@@ -127,9 +143,11 @@
     <TextView
         android:id="@+id/tatliTitle"
         android:layout_marginTop="7dp"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Tatlı"
+        android:background="@color/orange"
+        android:padding="5sp"
         android:textStyle="bold"
         android:textSize="16sp"
         app:layout_constraintTop_toBottomOf="@id/salata"
@@ -142,6 +160,7 @@
         android:layout_height="wrap_content"
         android:text="Tavuk Göğsü - 220 kcal"
         android:padding="12dp"
+        android:textStyle="bold"
         android:background="@color/orange"
         android:textColor="@android:color/black"
         app:layout_constraintTop_toBottomOf="@id/tatliTitle"
@@ -152,9 +171,11 @@
     <TextView
         android:id="@+id/icecekTitle"
         android:layout_marginTop="7dp"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="İçecek"
+        android:background="@color/blue"
+        android:padding="5sp"
         android:textStyle="bold"
         android:textSize="16sp"
         app:layout_constraintTop_toBottomOf="@id/tatli"
@@ -167,6 +188,7 @@
         android:layout_height="wrap_content"
         android:text="Kola - 100 kcal"
         android:padding="12dp"
+        android:textStyle="bold"
         android:background="@color/blue"
         android:textColor="@android:color/black"
         app:layout_constraintTop_toBottomOf="@id/icecekTitle"
@@ -176,22 +198,50 @@
     <!-- Toplam Kalori -->
     <TextView
         android:id="@+id/toplamKalori"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Toplam: 1450 kcal"
         android:textSize="16sp"
         android:textStyle="bold"
+        android:padding="5sp"
+        android:background="@color/kalori"
         app:layout_constraintTop_toBottomOf="@id/icecek"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp"/>
-
+        android:layout_marginTop="10dp"/>
+    <TextView
+        android:id="@+id/haftalikToplamKalori"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Toplam: Haftalik kcal"
+        android:textSize="16sp"
+        android:background="@color/kalori"
+        android:textStyle="bold"
+        android:padding="5sp"
+        app:layout_constraintTop_toBottomOf="@id/toplamKalori"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="10dp"/>
+    <TextView
+        android:id="@+id/aylikToplamKalori"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Toplam: Aylik kcal"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:padding="5sp"
+        android:textAlignment="textStart"
+        android:background="@color/kalori"
+        app:layout_constraintTop_toBottomOf="@id/haftalikToplamKalori"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="10dp"/>
     <Button
-        android:id="@+id/btnAylikMenu"
+        android:id="@+id/btnHaftalikMenu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Aylık Menü"
-        app:layout_constraintTop_toBottomOf="@id/toplamKalori"
+        android:text="Haftalık Menü"
+        app:layout_constraintTop_toBottomOf="@id/aylikToplamKalori"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="20dp"/>
 
